@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    char grade = 'A';
+    char grade = 'B';
     string meow = " put in double quotes";
     int pak = 3;
     double cg = 8.52;
