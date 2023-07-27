@@ -12,7 +12,7 @@ int main()
     {
         int bit = n&1;
         
-        answer = answer + pow(10,i);
+        answer = answer + bit*pow(10,i);
         n = n>>1;
     }
     cout << answer;
