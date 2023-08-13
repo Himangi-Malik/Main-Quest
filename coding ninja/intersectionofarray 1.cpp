@@ -9,6 +9,9 @@ vector<int> findArrayIntersection(vector<int> &arr1, int n, vector<int> &arr2, i
 		int element = arr1[i];
 		for(int j=0; j<m; j++)
 		{
+			if (arr2[j] > element)
+				break;
+			
 			if(arr2[j]==element)
 			{
 				ans.push_back(element);
