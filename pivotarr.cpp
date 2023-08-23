@@ -6,8 +6,10 @@ int getpivot(int arr[] , int size)
     int s=0;
     int e= size -1;
     int mid = s + (e-s)/2;
+    int iteration = 0;
 
     while(s<e){
+        cout << iteration << " " << arr[s] << " " <<  arr[e] << " " << arr[mid] << endl;
         if (arr[mid] >= arr[0])
         s = mid+1;
 
@@ -15,6 +17,7 @@ int getpivot(int arr[] , int size)
         e= mid;
 
         mid = s+  + (e-s)/2;
+        iteration++;
     }
     return s;
 }
