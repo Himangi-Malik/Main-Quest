@@ -1,0 +1,39 @@
+The key observation here is that after rotating ‘arr’, it is divided into two sorted parts/arrays, one from 0 to pivot - 1 and another from pivot to ‘n’ - 1.
+
+ 
+
+Now the problem boils down to finding the pivot point. , we will modify the binary search algorithm and first find the pivot point in ‘arr’.
+
+ 
+
+Here is the algorithm:
+
+We initialize two integer variables, ‘si’ and ‘ei’, denoting the start and end indexes to 0 and ‘n’ -1, respectively. We also initialize another integer variable, ‘pivot’, to 0 that stores the index of the pivot element.
+
+ 
+
+In the modified binary search, we will compare arr[mid]’ with ‘arr[0]’ because if arr[mid] < arr[0], then it is guaranteed that ‘pivot’ is mid or present on its left side. Else, ‘pivot’ is present on the right side.
+
+ 
+
+The modified binary search to find the pivot point:
+
+We find the index of the middle element of arr as mid = si + (ei - si) /2.
+If (arr[mid] < arr[0])
+pivot = mid
+We update the end index ei, ei = mid - 1.
+Else
+We update the start index si, si = mid + 1.
+ 
+
+After finding the pivot, we can easily locate the two sorted parts of arr, one starting from 0 to ‘pivot’ - 1 and the other from ‘pivot’ to ‘n’ - 1. Now, we apply binary search in that sorted part of arr where the element ‘k’ may lie. If ‘k’ is present, we return its index. Else, we return -1.
+
+Time Complexity
+O(log(N)), where N is the length of the array/list. 
+
+ 
+
+We are applying binary search two times. Every time we divide the search interval in half. Hence, the time complexity is O(log(N)).
+
+Space Complexity
+O(1), i.e. constant space complexity. 
