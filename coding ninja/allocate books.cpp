@@ -1,10 +1,9 @@
-//meow galat hi hai but kuch to push karna hai
 #include <bits/stdc++.h> 
 
-bool isPossible( vector<int> time, int mid, int days, int chapters)
+bool isPossible( vector<int> time, long long mid, int days, int chapters)
 {
-	int sum=0;
-	int day=1;
+	long long sum=0;
+	long long day=1;
 	for(int i=0; i< chapters; i++)
 	{
 		if(sum+time[i] <= mid)
@@ -13,11 +12,14 @@ bool isPossible( vector<int> time, int mid, int days, int chapters)
 		else
 		{
 		    day++;
+		    sum= time[i];//ab next day ke liye loop chalega
+			
+
 		    if(day>days || time[i]> mid)
 			return false;
 		}
-		sum= time[i];//ab next day ke liye loop chalega
 
+		
 	}
 	return true;
 	
@@ -26,17 +28,17 @@ bool isPossible( vector<int> time, int mid, int days, int chapters)
 
 long long ayushGivesNinjatest(int n, int m, vector<int> time) 
 {
-	int totalTime =0;
+	long long totalTime =0;
 	for(int i=0; i<m; i++)
 	totalTime += time[i];
 
-	int s=0;
-	int e=totalTime;
+	long long s=0;
+	long long e=totalTime;
 
-	int mid = s+(e-s)/2;
+	long long mid = s+(e-s)/2;
 	long long answer = -1;
 
-	while(s<e)
+	while(s<=e)
 	{
 		if(isPossible(time, mid,n,m))
 		{
