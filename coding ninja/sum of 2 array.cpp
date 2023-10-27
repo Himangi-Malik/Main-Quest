@@ -38,7 +38,10 @@ vector<int> findArraySum(vector<int>&a, int n, vector<int>&b, int m)
 
 	while(carry!=0)
 	{
-		ans.push_back(carry);
+		sum =  carry;
+		carry = sum/10;
+		sum = sum%10;
+		ans.push_back(sum);
 	}
 
 	reverse(ans.begin(), ans.end());
