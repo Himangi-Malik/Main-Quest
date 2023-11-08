@@ -24,3 +24,21 @@ public:
         
     }
 };
+
+
+//alternate but meko abhi bhi error samjh nhi aa rha
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        string temp = "";
+        for(int i = 0; i< s.length(); i++)
+        {
+           if((temp[temp.length()-1]==s[i]) && (temp.length()>0))
+           temp.pop_back();
+
+           else
+           temp.push_back(s[i]) ;
+        } 
+       return temp; 
+    }
+};
