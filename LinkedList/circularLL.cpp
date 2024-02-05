@@ -1,4 +1,6 @@
- if (head == NULL) {
+//bc iss mein koi slow and fast waala scene bhi hai
+//yeh waala brute froce approach hai, have to optimize it
+if (head == NULL) {
       return true;
     } 
 
