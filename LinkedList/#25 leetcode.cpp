@@ -1,37 +1,45 @@
-// solution from someone else
+//recursion nhi aati hai, recursion karni hai ache se
+// forward -> next ka dhyaan rakhna hai ache se thanks
 class Solution {
 public:
-    ListNode* reverseKGroup(ListNode* head, int k) 
-    {
-        ListNode* temp=head;
-        ListNode* curr=head;
-        ListNode* prev=NULL;
-        ListNode* next=NULL;
-        int n=0;
-        while(temp!=0)
-        {
-            n++;
-            temp=temp->next;
-        }
-        if(n<k)
-        {
-            return head;
-        }
-        int count=0;
 
-        while(curr!=0 && count<k)
+    int checkLength(ListNode*head)
+    {
+        ListNode* temp = head;
+        int i = 0;
+        for(; temp!=NULL; i++)
         {
-            next=curr->next;
-            curr->next=prev;
-            prev=curr;
-            curr=next;
+           temp = temp->next; 
+        }
+        return i;
+    }
+
+    ListNode* reverseKGroup(ListNode* head, int k) {
+
+        if (head == NULL || head->next ==NULL)
+        return head;
+
+        int length = checkLength(head);
+        if (length < k)
+        return head;
+        
+        ListNode *prev = NULL;
+        ListNode *curr = head;
+        ListNode *forward = NULL;
+
+        int count = 0;
+        while(count<k){
+            forward = curr->next;
+            curr-> next = prev;
+            prev = curr;
+            curr = forward;
             count++;
         }
-
-        if(curr!=NULL)
+        
+        if(curr!= NULL)
         {
-            head->next=reverseKGroup(curr,k);
+            head->next = reverseKGroup(curr,k);
         }
-        return prev;
+        return prev;       
     }
 };
