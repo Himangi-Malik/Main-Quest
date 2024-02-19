@@ -1,3 +1,5 @@
+//ISS MEIN LOVE BABBAR NE BAS  or (||) lga lga ke kiya tha aur kuch nhi hai iss mein
+
 bool isValidParenthesis(string s)
 {
     // Write your code here.yes sure i will do the pleasure of writing the code here thanks
